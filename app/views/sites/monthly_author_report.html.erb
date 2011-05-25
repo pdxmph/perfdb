@@ -1,0 +1,34 @@
+<div class="span-22" style="margin-top:2em;">
+
+<h3>Author Performance</h3>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Total Page Views</th>
+    <th>Average Page Views</th>
+    <th>Total Cost</th>
+    <th>Average Effort</th>
+    <th>Net Revenue from Articles</th>
+  </tr>
+
+  <% @authors.each do |a| %>
+
+      <% auth_report = a.site_report_by_date(@date, @id) %>
+      <tr class="<%= cycle("even", "odd") %>">
+          <td><%= a.name %> (<%= auth_report[:total_articles] %>)</td>
+          <td><%= number_with_delimiter(auth_report[:total_views].to_i) %></td>
+          <td><%= number_with_delimiter(auth_report[:average_views].to_i) %></td>
+          <td><%= number_to_currency(auth_report[:total_cost]) %></td>
+          <td><%= number_with_precision(auth_report[:average_effort],  :precision => 2) %></td>
+          <td><%= number_to_currency(auth_report[:revenue]) %></td>
+    </tr>
+
+
+
+  <% end %>
+
+
+
+</table>
+</div>

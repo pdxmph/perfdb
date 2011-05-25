@@ -1,0 +1,53 @@
+<%= form_for(@site_stat) do |f| %>
+  <% if @site_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@site_stat.errors.count, "error") %> prohibited this site_stat from being saved:</h2>
+
+      <ul>
+      <% @site_stat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :site_id %><br />
+    <%= f.text_field :site_id %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br />
+    <%= f.date_select :month %>
+  </div>
+  <div class="field">
+    <%= f.label :pageviews %><br />
+    <%= f.text_field :pageviews %>
+  </div>
+  <div class="field">
+    <%= f.label :bounces %><br />
+    <%= f.text_field :bounces %>
+  </div>
+  <div class="field">
+    <%= f.label :revenue %><br />
+    <%= f.text_field :revenue %>
+  </div>
+  <div class="field">
+    <%= f.label :bouncerate %><br />
+    <%= f.text_field :bouncerate %>
+  </div>
+  <div class="field">
+    <%= f.label :bounces %><br />
+    <%= f.text_field :bounces %>
+  </div>
+  <div class="field">
+    <%= f.label :unique_pageviews %><br />
+    <%= f.text_field :unique_pageviews %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  site_id: 1
+  month: 2010-10-26
+  pageviews: 
+  bounces: 
+  revenue: 1.5
+  bouncerate: 1.5
+  bounces: 
+  unique_pageviews: 
+
+two:
+  id: 1
+  site_id: 1
+  month: 2010-10-26
+  pageviews: 
+  bounces: 
+  revenue: 1.5
+  bouncerate: 1.5
+  bounces: 
+  unique_pageviews: 

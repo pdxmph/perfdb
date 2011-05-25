@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2 style="margin-bottom:0px;"><%= @site.site_name %></h2>
+<!-- <h4 style="margin-top:0px;margin-bottom:0px;">  <%= @site.site_domain %></h4> -->
+<h5 style="margin-top:0px;"> <%= number_with_delimiter(@site.articles.count, :delimiter => ',')%> articles in database</h5>
+
+<table style="border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
+    
+    <tr>
+        <th></th>
+        <th>Total</th>
+        <th>Average</th>
+    <tr class="even">
+        <td><strong>Cost</strong></td>
+        <td>$<%= number_with_precision(@site.articles.sum(:total_cost), :precision => 2, :delimiter => ',') %></td>
+        <td>$<%= number_with_precision(@site.articles.average(:total_cost), :precision => 2, :delimiter => ',') %></td>
+    </tr>
+
+    <tr class="odd">
+        <td><strong>Effort</strong></td>
+        <td><%= number_with_precision(@site.articles.sum(:effort), :precision => 2, :delimiter => ',')  %></td>
+        <td><%= number_with_precision(@site.articles.average(:effort), :precision => 2, :delimiter => ',')  %></td>
+        
+    </tr>
+    
+    <tr class="even">
+        <td><strong>Page Views</strong></td>
+        <td><%= number_with_delimiter(@site.total_pageviews("2010-05-01","2010-08-31").to_i, :delimiter => ',') %></td>
+        <td><%= number_with_precision(@site.average_pageviews("2010-05-01","2010-08-31"), :delimiter => ',') %> </td>
+    </tr>
+</table>
+
+<div class="span-22">
+    <div class="span-10">
+        <img src="<%= @type_views_chart %>" />
+    </div>
+
+    <div class="span-10">
+        <img src="<%= @type_cost_chart %>" />
+    </div>
+</div>
+
+
+
+<div class="span-22" style="margin-top:2em;">
+    <div class="span-10">
+<h4>Top 10 Articles</h4>
+    <ol>
+    <% @top_articles.each do |ta| %>
+        <li>
+            
+        <%= ta.title %> (<%= number_with_delimiter(ta.views_30_day.to_i, :delimiter => ',') %>)      <% if ta.content_source == "I" %>
+                <img src="/images/newspaper.png" height="16" width="16" alt="InternetNews Article" />
+                <% end %></li>
+    <% end %>
+    </ol>
+    </div>
+
+
+    <div class="span-10">
+    
+<h4>Bottom 10 Articles</h4>
+    <ol>
+    <% @bottom_articles.each do |ta| %>
+        <li>
+        
+        <%= ta.title %> (<%= ta.views_30_day.to_i %>)     <% if ta.content_source == "I" %>
+            <img src="/images/newspaper.png" height="16" width="16" alt="InternetNews Article" />
+            <% end %></li>
+
+
+    <% end %>
+</ol>
+</div>
+</div>
+<p>
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>

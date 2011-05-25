@@ -1,0 +1,33 @@
+<h1>Sixty-Day Original Articles</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Pub date</th>
+    <th>Content source</th>
+    <th>Content type</th>
+    <th>Id</th>
+    <th>Cost</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.title %></td>
+    <td><%= article.pub_date %></td>
+    <td><%= article.content_source %></td>
+    <td><%= article.content_type %></td>
+    <td><%= article.id %></td>
+    <td><%= article.cost %></td>
+    <td><%= link_to 'Show', article %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_article_path %>

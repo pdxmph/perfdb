@@ -1,0 +1,48 @@
+<h1>Listing articles</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>30-Day Views</th>
+    <th>60-Day Views</th>
+    <th></th>
+    <th></th>
+    <th>Vertical</th>
+    <th>Site</th>
+    <th>Author</th>
+    <th>Editor</th>
+    <th>Content Type</th>
+    <th>Cost</th>
+    <th>URL</th>
+    <th></th>
+    <th>Pub Date</th>
+    
+    
+  </tr>
+
+<% @articles.each do |article| %>
+    <% unless article.all_recorded_views == 0 %>
+  <tr>
+    <td><%= article.id %></td>
+    <td><%= article.views_at(30) %></td>
+    <td><%= article.views_at(60) %></td>
+    <td></td>
+    <td></td>
+    <td><%= article.site.vertical.name %></td>
+    <td><%= article.site.name %></td>
+    <td><%= article.author.name %></td>
+    <td><%= article.editor.name %></td>
+    <td><%= article.content_type.name %></td>
+    <td><%= article.cost %></td>
+    <td><%=article.url %></td>
+    <td></td>
+    <td><%= article.pub_date %></td>
+   
+  </tr>
+  <%end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_article_path %>

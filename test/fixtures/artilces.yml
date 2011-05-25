@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  pub_date: 2010-10-10
+  content_source: MyString
+  content_type: MyString
+  id: 1
+  cost: 1.5
+
+two:
+  title: MyString
+  pub_date: 2010-10-10
+  content_source: MyString
+  content_type: MyString
+  id: 1
+  cost: 1.5

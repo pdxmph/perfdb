@@ -1,0 +1,27 @@
+<h1>Listing producers</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @producers.each do |producer| %>
+  <tr>
+    <td><%= producer.id %></td>
+    <td><%= producer.name %></td>
+    <td><%= producer.email %></td>
+    <td><%= link_to 'Show', producer %></td>
+    <td><%= link_to 'Edit', edit_producer_path(producer) %></td>
+    <td><%= link_to 'Destroy', producer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Producer', new_producer_path %>

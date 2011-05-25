@@ -1,0 +1,17 @@
+
+<tr class="<%= cycle("even", "odd") %>">
+
+            <td><%= report.name %> (<%= report.total_articles %>)</td>
+
+            <td><%= number_with_delimiter(report.total_views.to_i) %></td>
+
+            <td><%= number_with_delimiter(report.average_views.to_i, :precision => 0) %></td>
+
+            <td><%= number_to_currency(report.total_content_cost, :precision => 0) %></td>
+
+            <td><%= number_with_precision(report.average_effort,  :precision => 2, :delimiter => ',') %></td>
+
+            <td><%= number_to_currency(report.cost_per_view, :delimiter => ',') %></td>
+
+            <td><%= number_to_currency(report.net_revenue_per_view) %></td>
+        </tr>

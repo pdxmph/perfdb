@@ -1,0 +1,29 @@
+<%= form_for(@vertical) do |f| %>
+  <% if @vertical.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vertical.errors.count, "error") %> prohibited this vertical from being saved:</h2>
+
+      <ul>
+      <% @vertical.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :general_manager_id %><br />
+    <%= f.text_field :general_manager_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

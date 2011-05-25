@@ -1,0 +1,30 @@
+<%= render :partial => "revenue_table"  %>
+
+<%= render :partial => "top_bottom_articles" %>
+
+<div class="span-24">
+    <h3>Author Report</h3>
+
+    <table>
+        <tr>
+            <th>Author</th>
+            <th>Total Page Views</th>
+            <th>Average Page Views</th>
+            <th>Total Cost</th>
+            <th>Average Effort</th>
+            <th>Cost/View</th>
+            <th>Net Revenue/View</th>
+        </tr>
+
+        <% @authors.each do |author| %>
+
+        <% @report = author.site_report(@site.id, @start_date,@end_date) %>
+        
+        <%next if @report == "Error" %>
+        
+        <%= render :partial => "author_report", :locals => {:report => @report} %>
+
+        <% end %>
+
+    </table>
+</div>

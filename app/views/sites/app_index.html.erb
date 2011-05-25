@@ -1,0 +1,31 @@
+
+<h2>Welcome to PerfDB(!)</h2>
+<table>
+    
+    <tr class="even">
+        <td><strong>Articles in Database:</strong></td>
+        <td><%= number_with_delimiter(@total_articles) %>
+        </td>    
+<tr class="odd">
+        <td><strong>Articles Requiring Update:</strong></td>
+        <td><%= number_with_delimiter(@incomplete_articles) %>
+        </td>    
+    <tr class="even">
+        <td><strong>Authors in Database:</strong></td>
+        <td><%= @total_writers %>
+        </td>    
+    <tr class="odd">    
+        <td><strong>Sites in Database:</strong></td>
+        <td><%= @total_sites %></td>    
+    <tr class="even">
+        <td><strong>Editors in Database:</strong></td>
+        <td><%= @total_editors %>
+        </td>    
+    <tr class="odd">    
+        <td><strong>Recorded 30 Day Views:</strong></td>
+        <td><%= number_with_delimiter(@recorded_views) %>
+        </td>    
+
+    
+</table>
+

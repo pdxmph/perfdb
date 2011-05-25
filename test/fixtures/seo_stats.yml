@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  site_id: 1
+  google_pagerank: 1
+  google_backlinks: 1
+  yahoo_backlinks: 1
+  bing_backlinks: 1
+  alexa_backlinks: 1
+  gather_date: 2011-02-14
+
+two:
+  site_id: 1
+  google_pagerank: 1
+  google_backlinks: 1
+  yahoo_backlinks: 1
+  bing_backlinks: 1
+  alexa_backlinks: 1
+  gather_date: 2011-02-14

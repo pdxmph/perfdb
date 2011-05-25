@@ -1,0 +1,68 @@
+<table style   = "border-bottom:1px solid #ccc;">
+
+    <tr>
+        <th></th>
+
+        <th>Total</th>
+        <th>Average Per Article</th>
+
+    </tr>
+
+    <tr class  = "even">
+        <td><strong>Total Articles Published</strong></td>
+        <td><%= number_with_delimiter(@revenue_table.new_articles_count) %></td>
+        <td>-</td>
+    </tr>
+    <tr class  = "odd">
+        <td><strong>Total Page Views</strong></td>
+        <td><%= number_with_delimiter(@revenue_table.total_views.to_i) %></td>
+        <td>-</td>
+    </tr>
+
+    <tr class  = "even">
+        <td><strong>Page Views from Old Content</strong></td>
+        <td><%= number_with_delimiter(@revenue_table.old_content_views.to_i) %></td><td>-</td>
+
+
+        <tr class  = "odd">
+            <td><strong>Page Views From New Content</strong></td>
+            <td><%= number_with_delimiter(@revenue_table.new_content_views.to_i) %></td>
+            <td><%= number_with_delimiter(@revenue_table.new_content_avg_views.to_i) %> </td>
+        </tr>
+
+        <tr class = "even">
+            <td><strong>Gross Revenue</strong></td>
+            <td><%= number_to_currency(@revenue_table.gross_revenue, :precision => 0) %></td>
+            <td>-</td>
+
+        </tr>
+
+        <tr class  = "odd">
+            <td><strong>Revenue from Old Content</strong></td>
+            <td><%= number_to_currency(@revenue_table.old_content_revenue, :precision => 0) %></td>
+            <td>-</td>
+
+
+        </tr>
+
+        <tr class  = "even">
+            <td><strong>Cost of New Content</strong></td>
+            <td><%= number_to_currency(@revenue_table.total_content_cost, :precision => 0) %></td>
+            <td><%= number_to_currency(@revenue_table.average_content_cost, :precision => 0) %></td>
+
+        </tr>
+
+
+        <tr class   = "odd">
+            <td><strong>Net Revenue from New Content</strong></td>
+            <td><%= number_to_currency(@revenue_table.new_content_net_revenue, :precision => 0) %></td>
+            <td><%= number_to_currency(@revenue_table.new_content_avg_net_revenue, :precision => 0) %></td>
+        </tr>
+
+        <tr class    = "even">
+            <td><strong>Net Revenue</strong></td>
+            <td><%= number_to_currency(@revenue_table.net_revenue, :precision =>0) %></td>
+            <td>-</td>
+        </tr> 
+
+    </table>

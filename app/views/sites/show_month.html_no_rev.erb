@@ -1,0 +1,100 @@
+<table style="border-bottom:1px solid #ccc;">
+    
+    <tr>
+        <th></th>
+        <th>Total</th>
+        <th>Average Per Article</th>
+
+        <tr class="even">
+            <td><strong>Total Revenue</strong></td>
+            <td><%= number_to_currency(@month_report[:total_revenue]) %></td>
+            <td>-</td>
+        </tr>
+        
+
+    <tr class="odd">
+        <td><strong>Cost of New Content</strong></td>
+        <td><%= number_to_currency(@month_report[:total_content_cost]) %></td>
+        <td><%= number_to_currency(@month_report[:average_content_cost]) %></td>
+    </tr>
+
+    <tr class="even">
+           <td><strong>Page Views from New Content</strong></td>
+           <td><%= number_with_delimiter(@month_report[:new_content_views]) %></td>
+           <td><%= number_with_delimiter(@month_report[:new_content_avg_views]) %> </td>
+       </tr>
+           
+   
+   <tr class="odd">
+        <td><strong>Page Views from Previous Content</strong></td>
+        <td><%= number_with_delimiter(@month_report[:old_content_views]) %></td>
+        <td>-</td>
+    </tr>
+
+   
+    
+</table>
+
+
+
+<div class="span-24" style="margin-top:1em;">
+    <h3 style="margin-top:2em;">Article Performance</h3>
+    
+<div class="span-12">
+<h4>Top 10 Articles by Page Views</h4>
+    <ol>
+    <% @performance_report[:top_views].first(10).each do |ta| %>
+        <li><%= ta.title %> (<%= number_with_delimiter(ta.views_30_day.to_i, :delimiter => ',') %>)</li>
+    <% end %>
+    </ol>
+    </div>
+
+
+
+<div class="span-12 last">
+    <h4>Bottom 10 Articles by Page Views</h4>
+        <ol>
+        <% @performance_report[:bottom_views].first(10).each do |ta| %>
+            <li><%= ta.title %> (<%= number_with_delimiter(ta.views_30_day.to_i, :delimiter => ',') %>)</li>
+        <% end %>
+        </ol>
+
+</div>
+
+
+</div>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Total Page Views</th>
+    <th>Average Page Views</th>
+    <th>Total Cost</th>
+    <th>Average Effort</th>
+    <th>Cost/View</th>
+  </tr>
+</div>
+
+
+<div class="span-24">
+<h3>Author Report</h3>
+
+
+<% @authors.each do |a| %>
+    
+    <% @report = a.site_report_by_date(@start, @site.id) %>
+    <% next if @report[:total_articles] == 0 %>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= a.name %> (<%= @report[:total_articles] %>)</td>
+    <td><%= @report[:total_views].to_i %></td>
+    <td><%= number_with_delimiter(@report[:average_views].to_i) %></td>
+    <td><%= number_to_currency(@report[:total_cost]) %></td>
+    <td><%= number_with_precision(@report[:average_effort],  :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(@report[:cost_view],  :precision => 2, :delimiter => ',') %></td>
+  </tr>
+  
+  
+  
+<% end %>
+</table>
+</div>

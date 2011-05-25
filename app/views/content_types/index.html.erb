@@ -1,0 +1,34 @@
+<h1>Content Type Overview</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Average Page Views</th>
+    <th>Average Cost</th>
+    <th>Average Effort</th>
+    <th>Cost/View</th>
+  </tr>
+
+<% @content_types.each do |content_type| %>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= content_type.name %></td>
+    <td><%= number_with_precision(content_type.avg_30_views, :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(content_type.avg_cost, :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_with_precision(content_type.avg_effort, :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(content_type.cost_view,  :precision => 2, :delimiter => ',') %></td>
+  </tr>
+<% end %>
+
+
+
+</table>
+<div class="span-22">
+      <div class="span-10">
+          <img src="<%= @type_views_chart %>" />
+      </div>
+
+      <div class="span-10">
+          <img src="<%= @type_cost_chart %>" />
+      </div>
+  </div>
+<br />

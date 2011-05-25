@@ -1,0 +1,39 @@
+<h1>Listing site_stats</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Site</th>
+    <th>Month</th>
+    <th>Pageviews</th>
+    <th>Bounces</th>
+    <th>Revenue</th>
+    <th>Bouncerate</th>
+    <th>Bounces</th>
+    <th>Unique pageviews</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @site_stats.each do |site_stat| %>
+  <tr>
+    <td><%= site_stat.id %></td>
+    <td><%= site_stat.site_id %></td>
+    <td><%= site_stat.month %></td>
+    <td><%= site_stat.pageviews %></td>
+    <td><%= site_stat.bounces %></td>
+    <td><%= site_stat.revenue %></td>
+    <td><%= site_stat.bouncerate %></td>
+    <td><%= site_stat.bounces %></td>
+    <td><%= site_stat.unique_pageviews %></td>
+    <td><%= link_to 'Show', site_stat %></td>
+    <td><%= link_to 'Edit', edit_site_stat_path(site_stat) %></td>
+    <td><%= link_to 'Destroy', site_stat, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Site stat', new_site_stat_path %>

@@ -1,0 +1,102 @@
+<div class="span-24" style="margin-bottom:1em;">
+<h2>Content Type Report</h2>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Average Page Views</th>
+    <th>Average Cost</th>
+    <th>Average Effort</th>
+    <th>Cost/View</th>
+    <th>Net Revenue</th>
+    <th>Net Revenue/View</th>
+    
+  </tr>
+
+
+    
+  <% @type_reports.each do |report| %>
+
+    <tr class="<%= cycle("even", "odd") %>">
+    <td><%= report[:name] %> (<%= report[:total_articles] %>)</td>
+    <td><%= number_with_delimiter(report[:avg_30_day_views]) %> </td>
+    <td><%= number_to_currency(report[:avg_total_cost], :precision => 0) %> </td>
+    <td><%= number_with_precision(report[:avg_effort], :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_to_currency(report[:cost_view]) %> </td>
+    <td><%= number_to_currency(report[:net_revenue], :precision => 0) %> </td>
+    <td><%= number_to_currency(report[:net_revenue_per_view], :precision => 2) %> </td>
+    
+  </tr>
+  
+  
+  
+<% end %>
+</table>
+
+
+
+<div class="span-12">
+    <%= high_chart("my_id", @h) %>
+    
+<!-- <img src="<%= @type_cost_chart %>" /> -->
+</div>
+
+<div class="span-12 last">
+<!-- <img src="<%= @type_view_chart %>" /> -->
+</div>
+
+
+</div>
+
+<div style="span-24">
+
+<h2 style="margin-top:2em;">Content Source Report</h2>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Average Page Views</th>
+    <th>Average Cost</th>
+    <th>Average Effort</th>
+    <th>Cost/View</th>
+    <th>Net Revenue</th>
+    <th>Net Revenue/View</th>
+    
+  </tr>
+
+
+    
+  <% @source_reports.each do |report| %>
+
+    <tr class="<%= cycle("even", "odd") %>">
+    <td><%= report[:name] %> (<%= report[:total_articles] %>)</td>
+    <td><%= number_with_delimiter(report[:avg_30_day_views]) %> </td>
+    <td><%= number_to_currency(report[:avg_total_cost], :precision => 0) %> </td>
+    <td><%= number_with_precision(report[:avg_effort], :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_to_currency(report[:cost_view]) %> </td>
+    <td><%= number_to_currency(report[:net_revenue], :precision => 0) %> </td>
+    <td><%= number_to_currency(report[:net_revenue_per_view], :precision => 2) %> </td>
+    
+  </tr>
+  
+  
+  
+<% end %>
+</table>
+
+
+<!-- <div class="span-12">
+<img src="<%= @source_cost_chart %>" />
+</div>
+
+<div class="span-12 last">
+<img src="<%= @source_view_chart %>" />
+</div> -->
+
+
+
+
+
+</div>
+
+

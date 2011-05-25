@@ -1,0 +1,44 @@
+<div class="span-24" style="margin-top:1em;">
+    <h3 style="margin-top:2em;">Article Performance</h3>
+
+    <div class="span-12">
+        <h4>Top 10 Articles by Page Views</h4>
+        <ol>
+            <% @top_bottom_articles.top_views.first(10).each do |ta| %>
+            <li><%= ta[:title] %> (<%= number_with_delimiter(ta[:views].to_i, :delimiter => ',') %>)</li>
+            <% end %>
+        </ol>
+    </div>
+
+
+    <div class="span-12 last">
+
+        <h4>Top 10 Articles by Net Revenue</h4>
+        <ol>
+            <% @top_bottom_articles.top_revenue.first(10).each do |bp| %>
+            <li><%= bp[:title] %> (<%= number_to_currency(bp[:net_revenue].to_i, :precision => 0) %>)</li>
+            <% end %>
+        </ol>
+    </div>
+
+    <div class="span-12" style="display:none;">
+        <h4>Bottom 10 Articles by Page Views</h4>
+        <ol>
+            <% @top_bottom_articles.bottom_views.first(10).each do |ta| %>
+            <li><%= ta[:title] %> (<%= number_with_delimiter(ta[:views].to_i, :delimiter => ',') %>)</li>
+            <% end %>
+        </ol>
+    </div>
+
+
+
+    <div class="span-12 last" style="display:none;" >
+
+        <h4>Bottom 10 Articles by Net Revenue</h4>
+        <ol>
+            <% @top_bottom_articles.bottom_revenue.first(10).each do |bp| %>
+            <li><%= bp[:title] %> (<%= number_to_currency(bp[:net_revenue].to_i, :precision => 0) %>)</li>
+            <% end %>
+        </ol>
+    </div>
+</div>

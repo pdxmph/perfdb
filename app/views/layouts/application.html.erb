@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Performance DB: <%=h @page_name %></title>
+
+  <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print">
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection">
+  <![endif]-->
+  <link rel="stylesheet" href="/stylesheets/local.css" type="text/css" media="screen, projection">
+
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag :high_charts %>
+   <!--[if IE]>
+   <%= javascript_include_tag :ie_high_charts %>
+   <![endif]-->
+  <%= csrf_meta_tag%>
+</head>
+<body>
+
+<div class="container">
+    <div class="span-24" id="navstrip">
+    
+    <h3><%= @page_header %></h3>
+    <h4><%= @page_subhead %></h4>
+  
+    </div>
+
+<div class="span-24">
+
+
+<%= yield %>
+
+</div>
+</div>
+</div>
+</body>
+</html>

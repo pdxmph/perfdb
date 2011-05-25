@@ -1,0 +1,39 @@
+<table>
+  <tr>
+    <th></th>
+    <th>Average Page Views</th>
+    <th>Average Cost</th>
+    <th>Average Effort</th>
+    <th>Cost/View</th>
+  </tr>
+
+<% @content_types.each do |content_type| %>
+    
+    <% @report = content_type.site_report(@start, @site.id) %>
+    <% @team_report = content_type.team_report(@start, @site.id) %>
+    <% next if @report[:total_articles] == 0 %>
+    <tr class="<%= cycle("even", "odd") %>">
+    <td><%= content_type.name %> (<%= @report[:total_articles] %>)</td>
+    <td><%= number_with_precision(@report[:avg_30_day_views], :precision => 2, :delimiter => ',') %> (<%= number_with_precision(@team_report[:avg_30_day_views], :precision => 2, :delimiter => ',') %>)</td>
+    <td>$<%= number_with_precision(@report[:avg_total_cost], :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_with_precision(@report[:avg_effort], :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(@report[:cost_view],  :precision => 2, :delimiter => ',') %></td>
+  </tr>
+  
+  
+  
+<% end %>
+</table>
+<div class="span-22">
+      
+
+      <div class="span-10">
+          <img src="<%= @type_cost_chart %>" />
+      </div>
+      
+      <div class="span-10">
+            <img src="<%= @type_views_chart %>" />
+        </div>
+  </div>
+<br />
+

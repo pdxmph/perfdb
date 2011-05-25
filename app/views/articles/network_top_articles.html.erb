@@ -1,0 +1,52 @@
+
+<div class="span-22" style="margin-top:1em;">
+    <h3 style="margin-top:2em;">Article Performance</h3>
+    
+    <div class="span-10">
+<h4>Top 10 Articles</h4>
+    <ol>
+    <% @top_articles.each do |ta| %>
+        <li><%= ta.title %> (<%= number_with_delimiter(ta.views_30_day.to_i, :delimiter => ',') %>)&mdash;
+            <em><%= ta.site.site_name %></em></li>
+    <% end %>
+    </ol>
+    </div>
+
+
+    <div class="span-10">
+    
+<h4>Bottom 10 Articles</h4>
+    <ol>
+    <% @bottom_articles.each do |ta| %>
+        <li><%= ta.title %> (<%= ta.views_30_day.to_i %>)&mdash;
+            <em><%= ta.site.site_name %></em></li>
+    <% end %>
+</ol>
+
+
+</div>
+</div>
+
+<div class="span-22" style="margin-top:2em;">
+    
+    <div class="span-10">
+
+<h4>Top 10 Performing Articles</h4>
+        <ol>
+          <% @top_performers.first(10).each do |bp| %>
+              <li><%= bp[:title] %> ($<%= bp[:cost_view] %>/view) &mdash;<em><%= bp[:site] %> </em> </li>
+          <% end %>
+    </ol>
+    </div>
+
+
+    <div class="span-10">
+    
+<h4>Bottom 5 Performing Articles</h4>
+    <ol>
+    <% @bottom_performers.first(10).each do |bp| %>
+        <li><%= bp[:title] %> ($<%= bp[:cost_view] %>/view)&mdash;<em><%= bp[:site] %> </em></li>
+    <% end %>
+</ol>
+</div>
+</div>

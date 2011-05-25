@@ -1,0 +1,38 @@
+<h1>Combined Types and Sources Overview</h1>
+
+<table>
+  <tr>
+    <th>Source/Type</th>
+	<th>Total Views</th>
+	<th>Total Cost</th>
+    <th>Average Page Views</th>
+    <th>Average Cost</th>
+    <th>Average Effort</th>
+    <th>Cost/View</th>
+  </tr>
+
+<% @combinations.each do |k,v| %>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= k %></td>
+	<td><%= number_with_delimiter(v[0], :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(v[1], :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_with_precision(v[2], :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(v[3], :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_with_precision(v[4],  :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(v[5],  :precision => 2, :delimiter => ',') %></td>
+  </tr>
+  
+  
+  
+<% end %>
+</table>
+<div class="span-22">
+      <div class="span-10">
+
+      </div>
+
+      <div class="span-10">
+
+      </div>
+  </div>
+<br />

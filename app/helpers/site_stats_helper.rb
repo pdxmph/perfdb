@@ -1,0 +1,2 @@
+module SiteStatsHelper
+end

@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @author.name %></h2>
+
+<table style="border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
+    <tr>
+         <th></th>
+         <th>Total</th>
+         <th>Average</th>
+     </tr>
+     
+     
+     <tr class="even">
+         <td>
+             Lifetime Pageviews (<%= @all_articles.count %> Articles)
+         </td>
+         
+         <td>
+             <%= @all_articles.sum(:pageviews).to_i %>
+         </td>
+         
+         <td>
+            <%= @all_articles.average(:pageviews) %>
+         
+         </td>
+     </tr>
+     
+     <tr class="odd">
+         <td>
+             Pageviews (InternetNews) (<%= @inews.count %> articles)
+         </td>
+
+         <td>
+            <%= @inews.sum(:pageviews).to_i %>
+        </td>
+        <td>
+            <%= @inews.average(:pageviews).to_f %>
+        </td>
+    </tr>
+    
+    
+    <tr class="even">
+        <td>
+            Pageviews (Non-InternetNews) (<%= @non_inews.count %> articles)
+        </td>
+        <td>
+            <%= @non_inews.sum(:pageviews).to_i %>
+        </td>
+            
+        <td>
+            <%= @non_inews.average(:pageviews) %>
+        </td>
+    </tr>
+
+
+
+
+</table>
+
+
+<div class="span-22">
+    <div class="span-10">
+<h4>Top 10 Articles</h4>
+    <ol>
+    <% @top_articles.each do |ta| %>
+        <li><%= ta.title %> (<%= number_with_delimiter(ta.views_30_day.to_i, :delimiter => ',') %>)</li>
+    <% end %>
+    </ol>
+    </div>
+
+
+    <div class="span-10">
+    
+<h4>Bottom 10 Articles</h4>
+    <ol>
+    <% @bottom_articles.each do |ta| %>
+        <li><%= ta.title %> (<%= ta.views_30_day.to_i %>)</li>
+    <% end %>
+</ol>
+</div>
+</div>
+
+<!-- sheet[row,datacol] = all_articles.count.to_f
+    sheet[row,datacol + 1] = all_articles.sum(:pageviews).to_f
+    sheet[row,datacol + 2] = all_articles.average(:pageviews).to_f
+    sheet[row,datacol + 4] = inews.count.to_f
+    sheet[row,datacol + 5] = inews.sum(:pageviews).to_f
+    sheet[row,datacol + 6] = inews.average(:pageviews).to_f
+    sheet[row,datacol + 8] = non_inews.count.to_f
+    sheet[row,datacol + 9] = non_inews.sum(:pageviews).to_f
+    sheet[row,datacol + 10] = non_inews.average(:pageviews).to_f -->
+
+
+
+
+
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>

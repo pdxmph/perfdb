@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Total Page Views</th>
+    <th>Average Page Views</th>
+    <th>Total Cost</th>
+    <th>Average Effort</th>
+    <th>Cost/View</th>
+  </tr>
+
+<% @authors.each do |a| %>
+    
+    <% @report = a.site_report_by_date(@start, @site.id) %>
+    <% next if @report[:total_articles] == 0 %>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= a.name %> (<%= @report[:total_articles] %>)</td>
+    <td><%= @report[:total_views].to_i %></td>
+    <td><%= number_with_precision(@report[:average_views], :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(@report[:total_cost], :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_with_precision(@report[:average_effort],  :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(@report[:cost_view],  :precision => 2, :delimiter => ',') %></td>
+  </tr>
+  
+  
+  
+<% end %>
+</table>
+

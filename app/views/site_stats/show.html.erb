@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @site_stat.id %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @site_stat.site_id %>
+</p>
+
+<p>
+  <b>Month:</b>
+  <%= @site_stat.month %>
+</p>
+
+<p>
+  <b>Pageviews:</b>
+  <%= @site_stat.pageviews %>
+</p>
+
+<p>
+  <b>Bounces:</b>
+  <%= @site_stat.bounces %>
+</p>
+
+<p>
+  <b>Revenue:</b>
+  <%= @site_stat.revenue %>
+</p>
+
+<p>
+  <b>Bouncerate:</b>
+  <%= @site_stat.bouncerate %>
+</p>
+
+<p>
+  <b>Bounces:</b>
+  <%= @site_stat.bounces %>
+</p>
+
+<p>
+  <b>Unique pageviews:</b>
+  <%= @site_stat.unique_pageviews %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_stat_path(@site_stat) %> |
+<%= link_to 'Back', site_stats_path %>

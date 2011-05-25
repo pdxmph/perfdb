@@ -1,0 +1,9 @@
+#navstrip img {
+	vertical-align: middle;
+}
+
+#navstrip {
+	background: url(/images/qs_logo.jpg) no-repeat right top;
+	height: 70px;
+	padding-top: 25px;
+}

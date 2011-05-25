@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @vertical.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @vertical.name %>
+</p>
+
+<p>
+  <b>General manager:</b>
+  <%= @vertical.general_manager_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_vertical_path(@vertical) %> |
+<%= link_to 'Back', verticals_path %>

@@ -1,0 +1,17 @@
+#navstrip {
+	background: url(/images/qs_logo.jpg) no-repeat right top;
+	height: 70px;
+	padding-top: 25px;
+	border-bottom: 2px solid #f44524;
+	margin-bottom:1em;
+	color: #ccc;
+}
+
+h1,h2,h3,h4 {
+font-weight: bold;
+}
+
+#navstrip h3,h4 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}

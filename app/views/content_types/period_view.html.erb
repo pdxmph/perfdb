@@ -1,0 +1,35 @@
+<h1 style="margin-bottom:0px;">Content Type Overview</h1>
+<h5 style="margin-top:0px;"><%= @sd.strftime("%m/%d/%y") %> &mdash; <%= @ed.strftime("%m/%d/%y") %></h5>
+<table>
+  <tr>
+    <th></th>
+    <th>Average Page Views</th>
+    <th>Average Cost</th>
+    <th>Average Effort</th>
+  </tr>
+
+<% @content_types.each do |content_type| %>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= content_type.name %></td>
+    <td><%= number_with_precision(content_type.period_avg_30_views(@sd,@ed), :precision => 2, :delimiter => ',') %></td>
+    <td>$<%= number_with_precision(content_type.period_avg_cost(@sd,@ed), :precision => 2, :delimiter => ',') %></td>
+    <td><%= number_with_precision(content_type.period_avg_effort(@sd,@ed), :precision => 2, :delimiter => ',') %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="span-22">
+    <div class="span-10">
+        <img src="<%= @type_views_chart %>" />
+    </div>
+
+    <div class="span-10">
+        <img src="<%= @type_cost_chart %>" />
+    </div>
+</div>
+
+
+
+<br />
+
+<%= link_to 'New Content type', new_content_type_path %>

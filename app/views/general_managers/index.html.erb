@@ -1,0 +1,27 @@
+<h1>Listing general_managers</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @general_managers.each do |general_manager| %>
+  <tr>
+    <td><%= general_manager.id %></td>
+    <td><%= general_manager.name %></td>
+    <td><%= general_manager.email %></td>
+    <td><%= link_to 'Show', general_manager %></td>
+    <td><%= link_to 'Edit', edit_general_manager_path(general_manager) %></td>
+    <td><%= link_to 'Destroy', general_manager, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New General manager', new_general_manager_path %>
